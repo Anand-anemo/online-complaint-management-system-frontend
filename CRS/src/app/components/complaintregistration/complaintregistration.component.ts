@@ -28,6 +28,7 @@ export class ComplaintregistrationComponent implements OnInit {
     customer: [],
     engusername: ''
   }
+  dup=this.complaintDetails.fullname;
   constructor(private complaintService:ComplaintService,
     private router:Router,
     private activatedRoute:ActivatedRoute,
@@ -50,6 +51,8 @@ export class ComplaintregistrationComponent implements OnInit {
         console.log(error);
       }
     )
+
+    console.log(this.dup);
   }
 
   public isManager(){

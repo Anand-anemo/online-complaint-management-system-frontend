@@ -36,6 +36,8 @@ import { ManagerComplaintsComponent } from './components/manager-complaints/mana
 import { EngineerComplaintsComponent } from './components/engineer-complaints/engineer-complaints.component';
 import { AssigncomplaintsComponent } from './components/assigncomplaints/assigncomplaints.component';
 import { AssignstatusComponent } from './components/assignstatus/assignstatus.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -76,7 +78,9 @@ import { AssignstatusComponent } from './components/assignstatus/assignstatus.co
     ,MatIconModule
     ,MatDialogModule,
     MatButtonToggleModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
+    
   ],
   providers: [
     AuthGuard,

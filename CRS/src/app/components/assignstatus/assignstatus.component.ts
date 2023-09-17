@@ -14,7 +14,6 @@ export class AssignstatusComponent implements OnInit {
   constructor(private _route:ActivatedRoute,private _complaintService:ComplaintService , private userAuthService:UserAuthService){}
   ngOnInit(): void {
     this.cId=this._route.snapshot.params['cid']
-
     this._complaintService.getComplaintById(this.cId).subscribe(
       (data:any)=>{
         this.complaint=data;
@@ -24,23 +23,54 @@ export class AssignstatusComponent implements OnInit {
         console.log(error);
       }
     );
-  }
 
-  public updateComplaint(){
     
-    this._complaintService.updateComplaintforeng(this.complaint).subscribe(
-      (resp) => {
-        console.log(resp);
-       // this.router.navigate(['/customer']);
-      },
-      (error) =>{
-        console.log(error);
-      }
-    )
+  }
+  Resolved(){
+      this.complaint.complaintStatus="RESOLVED";
+      
+    
+        this._complaintService.updateComplaintforeng(this.complaint).subscribe(
+          (resp) => {
+            console.log(resp);
+           // this.router.navigate(['/customer']);
+          },
+          (error) =>{
+            console.log(error);
+          }
+        )
+      
+  }
+  wip(){
+    this.complaint.complaintStatus="WIP";
+      
+    
+        this._complaintService.updateComplaintforeng(this.complaint).subscribe(
+          (resp) => {
+            console.log(resp);
+           // this.router.navigate(['/customer']);
+          },
+          (error) =>{
+            console.log(error);
+          }
+        )
+  }
+  Escalated(){
+    this.complaint.complaintStatus="ESCALATED";
+      
+    
+        this._complaintService.updateComplaintforeng(this.complaint).subscribe(
+          (resp) => {
+            console.log(resp);
+           // this.router.navigate(['/customer']);
+          },
+          (error) =>{
+            console.log(error);
+          }
+        )
   }
 
-  public isCustomer(){
-    return this.userAuthService.isCustomer();
-  }
+ 
 
+ 
 }

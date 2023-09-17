@@ -1,56 +1,14 @@
 <div class="container mt-5">
+    <span><h1>Assign Status</h1></span>
     <div class="card p-5" style="background-color:#37383a;">
+       
         <div class="row">
-            <div class="col-12">
-        <form *ngIf="complaint"  (submit)="updateComplaint()">
 
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Full Name: </mat-label>
-                <input matInput placeholder="fullname" [(ngModel)]="complaint.fullname" name="fullname" style="color: whitesmoke;">
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Complaint Title: </mat-label>
-                <input matInput placeholder="Complaint Title" [(ngModel)]="complaint.heading" name="heading" style="color: whitesmoke;">
-            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="wip()">WIP :*click to assign complaint status as work in progress</button>
+            <button mat-raised-button color="primary" class="mt20" (click)="Resolved()">Resolved :*click to assign complaint status as RESOLVED</button>
+            <button mat-raised-button color="primary" class="mt20" (click)="Escalated()">Escalated :*click to assign complaint status as ESCALATED</button>
 
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Complaint category: </mat-label>
-                <input matInput placeholder="Complaint category" [(ngModel)]="complaint.category" name="category" style="color: whitesmoke;">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Complaint Details: </mat-label>
-                <textarea  type="text" matInput placeholder="Complaint Details" [(ngModel)]="complaint.details" name="details" style="color: whitesmoke;"></textarea>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Address: </mat-label>
-                <input  matInput placeholder="Address" [(ngModel)]="complaint.address" name="address" style="color: whitesmoke;" required>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Pincode: </mat-label>
-                <input  matInput placeholder="Pincode" [(ngModel)]="complaint.pincode" name="pincode" style="color: whitesmoke;" required>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Engineer name:</mat-label>
-                <input  matInput placeholder="engineer name" [(ngModel)]="complaint.engusername" name="engname" style="color: whitesmoke;" required>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="w-100" >
-                <mat-label>Status</mat-label>
-                <input  matInput placeholder="engineer name" [(ngModel)]="complaint.complaintStatus" name="engname" style="color: whitesmoke;" required>
-            </mat-form-field>
-
-            <div align="centre">
-                <!-- <button type="submit" mat-raised-button color="accent" *ngIf="cId == null">Register Complaint</button> -->
-                <button type="submit" mat-raised-button color="accent" >assign status</button>
-
-             </div>
-        </form>
+        </div>
     </div>
-</div>
 
-    </div>
 </div>
-

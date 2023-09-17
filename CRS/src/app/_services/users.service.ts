@@ -85,4 +85,8 @@ export class UsersService {
     return this.httpClient.delete(this.PATH_API + '/deleteUser/' + userName);
   }
 
+  public engineerslist(){
+    return this.httpClient.get(this.PATH_API + '/engineers');
+  }
+
 }

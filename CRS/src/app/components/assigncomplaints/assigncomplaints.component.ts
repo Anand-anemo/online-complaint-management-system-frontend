@@ -3,7 +3,10 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ComplaintService } from 'src/app/_services/complaint.service';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
+import { UsersService } from 'src/app/_services/users.service';
 import { Complaint } from 'src/app/models/Complaint.model';
+import { Role } from 'src/app/models/Role.model';
+import { User } from 'src/app/models/User.model';
 
 @Component({
   selector: 'app-assigncomplaints',
@@ -11,9 +14,11 @@ import { Complaint } from 'src/app/models/Complaint.model';
   styleUrls: ['./assigncomplaints.component.css']
 })
 export class AssigncomplaintsComponent implements OnInit {
+  enginfo: any|Role| User[];
   cId=0;
   complaint
-  constructor(private _route:ActivatedRoute,private _complaintService:ComplaintService , private userAuthService:UserAuthService){}
+  constructor(private _route:ActivatedRoute,private _complaintService:ComplaintService , private userAuthService:UserAuthService,
+    private userService:UsersService){}
   ngOnInit(): void {
     this.cId=this._route.snapshot.params['cid']
 
@@ -26,6 +31,18 @@ export class AssigncomplaintsComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.userService.engineerslist().subscribe(
+      (resp) =>{
+        this.enginfo = resp;
+        console.log(resp);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
+
     
   }
   

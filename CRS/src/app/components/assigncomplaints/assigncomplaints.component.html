@@ -2,49 +2,64 @@
     <div class="card p-5" style="background-color:#37383a;">
         <div class="row">
             <div class="col-12">
-        <form *ngIf="complaint"  (submit)="updateComplaint()">
+                <form *ngIf="complaint" (submit)="updateComplaint()">
 
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Full Name: </mat-label>
-                <input matInput placeholder="fullname" [(ngModel)]="complaint.fullname" name="fullname" style="color: whitesmoke;">
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Complaint Title: </mat-label>
-                <input matInput placeholder="Complaint Title" [(ngModel)]="complaint.heading" name="heading" style="color: whitesmoke;">
-            </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
+                        <mat-label>Full Name: </mat-label>
+                        <input matInput placeholder="fullname" [(ngModel)]="complaint.fullname" name="fullname"
+                            style="color: whitesmoke;">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
+                        <mat-label>Complaint Title: </mat-label>
+                        <input matInput placeholder="Complaint Title" [(ngModel)]="complaint.heading" name="heading"
+                            style="color: whitesmoke;">
+                    </mat-form-field>
 
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Complaint category: </mat-label>
-                <input matInput placeholder="Complaint category" [(ngModel)]="complaint.category" name="category" style="color: whitesmoke;">
-            </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
+                        <mat-label>Complaint category: </mat-label>
+                        <input matInput placeholder="Complaint category" [(ngModel)]="complaint.category"
+                            name="category" style="color: whitesmoke;">
+                    </mat-form-field>
 
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Complaint Details: </mat-label>
-                <textarea  type="text" matInput placeholder="Complaint Details" [(ngModel)]="complaint.details" name="details" style="color: whitesmoke;"></textarea>
-            </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
+                        <mat-label>Complaint Details: </mat-label>
+                        <textarea type="text" matInput placeholder="Complaint Details" [(ngModel)]="complaint.details"
+                            name="details" style="color: whitesmoke;"></textarea>
+                    </mat-form-field>
 
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Address: </mat-label>
-                <input  matInput placeholder="Address" [(ngModel)]="complaint.address" name="address" style="color: whitesmoke;" required>
-            </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
+                        <mat-label>Address: </mat-label>
+                        <input matInput placeholder="Address" [(ngModel)]="complaint.address" name="address"
+                            style="color: whitesmoke;" required>
+                    </mat-form-field>
 
-            <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
-                <mat-label>Pincode: </mat-label>
-                <input  matInput placeholder="Pincode" [(ngModel)]="complaint.pincode" name="pincode" style="color: whitesmoke;" required>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="w-100" >
+                    <mat-form-field appearance="outline" class="w-100" *ngIf="isCustomer()">
+                        <mat-label>Pincode: </mat-label>
+                        <input matInput placeholder="Pincode" [(ngModel)]="complaint.pincode" name="pincode"
+                            style="color: whitesmoke;" required>
+                    </mat-form-field>
+                    <mat-form-field class="w-100">
+                        <mat-label>Engineers</mat-label>
+                        <mat-select name="engname" [(ngModel)]="complaint.engusername">
+                            <mat-option>--select engineer--</mat-option>
+                            <mat-option [value]="eng.userName" *ngFor="let eng of enginfo">{{eng.userName}}
+                                pin:{{eng.pincode}}</mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                    <!-- <mat-form-field appearance="outline" class="w-100" >
                 <mat-label>Engineer name:</mat-label>
                 <input  matInput placeholder="engineer name" [(ngModel)]="complaint.engusername" name="engname" style="color: whitesmoke;" required>
-            </mat-form-field>
+            </mat-form-field> -->
 
-            <div align="centre">
-                <!-- <button type="submit" mat-raised-button color="accent" *ngIf="cId == null">Register Complaint</button> -->
-                <button type="submit" mat-raised-button color="accent" >assign to engineer</button>
+                    <div align="centre">
+                        <!-- <button type="submit" mat-raised-button color="accent" *ngIf="cId == null">Register Complaint</button> -->
+                        <button type="submit" mat-raised-button color="accent">assign to engineer</button>
 
-             </div>
-        </form>
-    </div>
-</div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </div>
 </div>

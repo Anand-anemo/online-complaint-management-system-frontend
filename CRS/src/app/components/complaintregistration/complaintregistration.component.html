@@ -5,8 +5,8 @@
         <form #comaplaintForm="ngForm" (ngSubmit)="registerComplaint(comaplaintForm)" >
 
             <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Full Name: </mat-label>
-                <input matInput placeholder="fullname" [(ngModel)]="complaintDetails.fullname" name="fullname" style="color: whitesmoke;">
+                <mat-label>UserName: </mat-label>
+                <input matInput placeholder="username" [(ngModel)]="complaintDetails.fullname" name="fullname" style="color: whitesmoke;">
             </mat-form-field>
 
             <!--Enter complaint category-->
@@ -53,6 +53,8 @@
                 <mat-label>Engineer name:</mat-label>
                 <input  matInput placeholder="engineer name" [(ngModel)]="complaintDetails.engusername" name="engname" style="color: whitesmoke;" required>
             </mat-form-field>
+
+            {{dup}}
 
             <div align="centre">
                 <button type="submit" mat-raised-button color="accent">Register Complaint</button>

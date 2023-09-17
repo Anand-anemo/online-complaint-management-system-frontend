@@ -8,7 +8,7 @@ import { Complaint } from 'src/app/models/Complaint.model';
   styleUrls: ['./manager-complaints.component.css']
 })
 export class ManagerComplaintsComponent implements OnInit{
-  displayedColumns = ["Id", "Category", "Heading" , "Details", "Address", "UserName", "Status", "assignTo", "Edit"  ];
+  displayedColumns = ["Id", "Category", "Heading" , "Details", "Address", "UserName", "Status", "assignedTo", "AssignTo"  ];
   complaintsformanager:Complaint[];
   constructor(private complaintService:ComplaintService){}
   ngOnInit(): void {

@@ -25,15 +25,15 @@ export class ComplaintService {
   }
   
   public markAsResolved(complaintId){
-    return this.httpClient.get(this.PATH_API+'/markAsResolved/'+complaintId);
+    return this.httpClient.put(this.PATH_API+'/markAsResolved/'+complaintId,complaintId );
   }
   
   public markAsWip(complaintId){
     return this.httpClient.get(this.PATH_API+'/markAsWip/'+complaintId);
   }
   
-  public markAsInReview(complaintId){
-    return this.httpClient.get(this.PATH_API+'/markAsInReview/'+complaintId);
+  public markAsEscalated(complaintId){
+    return this.httpClient.get(this.PATH_API+'/markAsEscalated/'+complaintId);
   }
   
   public getComplaintById(complaintId){
