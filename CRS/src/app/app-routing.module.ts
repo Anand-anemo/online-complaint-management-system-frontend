@@ -17,6 +17,7 @@ import { ManagerComplaintsComponent } from './components/manager-complaints/mana
 import { EngineerComplaintsComponent } from './components/engineer-complaints/engineer-complaints.component';
 import { AssigncomplaintsComponent } from './components/assigncomplaints/assigncomplaints.component';
 import { AssignstatusComponent } from './components/assignstatus/assignstatus.component';
+import { AuthGuard } from './_services/_auth_guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,49 +27,49 @@ const routes: Routes = [
     path:'login',component:LoginComponent
   },
   {
-    path:'admin',component:AdminDashboardComponent
+    path:'admin',component:AdminDashboardComponent,canActivate:[AuthGuard], data:{roles:['Admin']}
   },
   {
-    path:'customer',component:CustomerDashboardComponent
+    path:'customer',component:CustomerDashboardComponent,canActivate:[AuthGuard], data:{roles:['Customer']}
   },
   {
-    path:'engineer',component:EngineerDashboardComponent
+    path:'engineer',component:EngineerDashboardComponent,canActivate:[AuthGuard], data:{roles:['Engineer']}
   },
   {
-    path:'manager',component:ManagerDashboardComponent
+    path:'manager',component:ManagerDashboardComponent,canActivate:[AuthGuard], data:{roles:['Manager']}
   },
   {
-    path:'complaint_register',component:ComplaintregistrationComponent
+    path:'complaint_register',component:ComplaintregistrationComponent,canActivate:[AuthGuard], data:{roles:['Customer']}
   },
   {
-    path:'register',component:UserRegistrationComponent
+    path:'register',component:UserRegistrationComponent,canActivate:[AuthGuard], data:{roles:['Admin']}
   },
   {
-    path:'manager_register',component:MangerRegistrationComponent
+    path:'manager_register',component:MangerRegistrationComponent,canActivate:[AuthGuard], data:{roles:['Admin']}
   },
   {
-    path:'engineer_register',component:EngineerRegistrationComponent
+    path:'engineer_register',component:EngineerRegistrationComponent,canActivate:[AuthGuard], data:{roles:['Admin']}
   },
   {
-    path:'userslist',component:UserslistComponent
+    path:'userslist',component:UserslistComponent,canActivate:[AuthGuard], data:{roles:['Admin']}
   },
   {
-    path:'allcomplaints',component:AllcomplaintsComponent
+    path:'allcomplaints',component:AllcomplaintsComponent,canActivate:[AuthGuard], data:{roles:['Admin']}
   },
   {
-    path:'customer_complaints',component:CustomerComplaintsComponent
+    path:'customer_complaints',component:CustomerComplaintsComponent,canActivate:[AuthGuard], data:{roles:['Customer']}
   },
   {
-    path:'manager_complaints',component:ManagerComplaintsComponent
+    path:'manager_complaints',component:ManagerComplaintsComponent,canActivate:[AuthGuard], data:{roles:['Manager']}
   },
   {
-    path:'engineer_complaints',component:EngineerComplaintsComponent
+    path:'engineer_complaints',component:EngineerComplaintsComponent,canActivate:[AuthGuard], data:{roles:['Engineer']}
   },
   {
-    path:'assignTo/:cid' , component:AssigncomplaintsComponent
+    path:'assignTo/:cid' , component:AssigncomplaintsComponent,canActivate:[AuthGuard], data:{roles:['Manager']}
   },
   {
-    path:'changeStatus/:cid' , component:AssignstatusComponent
+    path:'changeStatus/:cid' , component:AssignstatusComponent,canActivate:[AuthGuard], data:{roles:['Engineer']}
   }
   
   
