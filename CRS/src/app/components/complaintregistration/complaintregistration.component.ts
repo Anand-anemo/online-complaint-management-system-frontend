@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComplaintService } from 'src/app/_services/complaint.service';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
@@ -32,7 +33,8 @@ export class ComplaintregistrationComponent implements OnInit {
   constructor(private complaintService:ComplaintService,
     private router:Router,
     private activatedRoute:ActivatedRoute,
-    private userAuthService:UserAuthService){}
+    private userAuthService:UserAuthService,
+    private _snackBar:MatSnackBar){}
   ngOnInit(): void {
 
     this.isManager();
@@ -45,6 +47,10 @@ export class ComplaintregistrationComponent implements OnInit {
     this.complaintService.regNewComplaint(comaplaintForm.value).subscribe(
       (resp) => {
         console.log(resp);
+        this._snackBar.open('Complaint Registration Done','',{
+          duration:4000,verticalPosition:'top'
+        })
+
         this.router.navigate(['/customer']);
       },
       (error) =>{

@@ -37,6 +37,7 @@ import { EngineerComplaintsComponent } from './components/engineer-complaints/en
 import { AssigncomplaintsComponent } from './components/assigncomplaints/assigncomplaints.component';
 import { AssignstatusComponent } from './components/assignstatus/assignstatus.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -79,7 +80,8 @@ import {MatSelectModule} from '@angular/material/select';
     ,MatDialogModule,
     MatButtonToggleModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
     
   ],
   providers: [

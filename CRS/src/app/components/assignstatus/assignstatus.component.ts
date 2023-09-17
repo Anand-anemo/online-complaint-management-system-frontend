@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ComplaintService } from 'src/app/_services/complaint.service';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
@@ -11,7 +12,8 @@ import { UserAuthService } from 'src/app/_services/user-auth.service';
 export class AssignstatusComponent implements OnInit {
   cId=0;
   complaint
-  constructor(private _route:ActivatedRoute,private _complaintService:ComplaintService , private userAuthService:UserAuthService){}
+  constructor(private _route:ActivatedRoute,private _complaintService:ComplaintService , private userAuthService:UserAuthService,
+    private _snackbar:MatSnackBar){}
   ngOnInit(): void {
     this.cId=this._route.snapshot.params['cid']
     this._complaintService.getComplaintById(this.cId).subscribe(
@@ -33,6 +35,10 @@ export class AssignstatusComponent implements OnInit {
         this._complaintService.updateComplaintforeng(this.complaint).subscribe(
           (resp) => {
             console.log(resp);
+            this._snackbar.open('Status Assigned Successfully','',{
+              duration:4000,verticalPosition:'top'
+            })
+
            // this.router.navigate(['/customer']);
           },
           (error) =>{
@@ -48,6 +54,9 @@ export class AssignstatusComponent implements OnInit {
         this._complaintService.updateComplaintforeng(this.complaint).subscribe(
           (resp) => {
             console.log(resp);
+            this._snackbar.open('Status Assigned Successfully','',{
+              duration:4000,verticalPosition:'top'
+            })
            // this.router.navigate(['/customer']);
           },
           (error) =>{
@@ -62,6 +71,9 @@ export class AssignstatusComponent implements OnInit {
         this._complaintService.updateComplaintforeng(this.complaint).subscribe(
           (resp) => {
             console.log(resp);
+            this._snackbar.open('Status Assigned Successfully','',{
+              duration:4000,verticalPosition:'top'
+            })
            // this.router.navigate(['/customer']);
           },
           (error) =>{

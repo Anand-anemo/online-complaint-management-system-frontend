@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ComplaintService } from 'src/app/_services/complaint.service';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
 import { UsersService } from 'src/app/_services/users.service';
@@ -18,7 +19,7 @@ export class AssigncomplaintsComponent implements OnInit {
   cId=0;
   complaint
   constructor(private _route:ActivatedRoute,private _complaintService:ComplaintService , private userAuthService:UserAuthService,
-    private userService:UsersService){}
+    private userService:UsersService,private _snackBar:MatSnackBar,private router:Router){}
   ngOnInit(): void {
     this.cId=this._route.snapshot.params['cid']
 
@@ -51,7 +52,11 @@ export class AssigncomplaintsComponent implements OnInit {
     this._complaintService.updateComplaint(this.complaint).subscribe(
       (resp) => {
         console.log(resp);
-       // this.router.navigate(['/customer']);
+        this._snackBar.open('Complaint Assigned Successfully','',{
+          duration:4000,verticalPosition:'top'
+        })
+
+        this.router.navigate(['/manager']);
       },
       (error) =>{
         console.log(error);

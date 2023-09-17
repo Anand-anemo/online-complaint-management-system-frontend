@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
 import { UsersService } from 'src/app/_services/users.service';
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   msg:any
   constructor(  private userService:UsersService,
     private userAuthService:UserAuthService,
-    private router:Router){}
+    private router:Router,
+    private _snackbar:MatSnackBar){}
   ngOnInit(): void {
     
   }
@@ -23,6 +25,11 @@ export class LoginComponent implements OnInit {
       console.log(response);//this response contains the entered userdata
       // console.log(response.jwtToken);
       // console.log(response.user.role);
+      this._snackbar.open('login successful','',{
+        duration:4000,
+        verticalPosition:'top'
+      })
+
       this.userAuthService.setRoles(response.user.role);
       this.userAuthService.setToken(response.jwtToken);
 
